@@ -5,6 +5,7 @@ class TodolistsController < ApplicationController
 
   def create
     list = List.new(list_params)
+    #langeage.rbとvision.rbを読み込む記述
     list.score = Language.get_data(list_params[:body])  #この行を追加
     list.save
     tags = Vision.get_image_data(list.image)
